@@ -15,7 +15,10 @@ app.add_middleware(
 )
 
 # Load model
-model = joblib.load("model/soil_health_model.pkl")
+import os
+
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "model", "soil_health_model.pkl")
+model = joblib.load(MODEL_PATH)
 
 # ✅ Add the missing two features: ph and nitrogen
 class SoilData(BaseModel):
